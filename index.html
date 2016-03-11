@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+
+		<title>Maps & MeetUps</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<link rel="stylesheet" type="text/css" href="http://ryanwaite28.github.io/my-cdn/css/bootstrap.css"/>
+		<link rel="stylesheet" type="text/css" href="style.css"/>
+		<link rel="stylesheet" type="text/css" media="only screen and (max-width: 785px)" href="mobile-style.css">
+		<link rel="icon" type="image/jpg" href="https://image.freepik.com/free-icon/network-connection_318-10835.jpg" size="20x20"/>
+		<script src="http://ryanwaite28.github.io/my-cdn/js/angular.js"></script>
+		<script src="http://ryanwaite28.github.io/my-cdn/js/jquery.js"></script>
+		<script src="script.js"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSHPWjouiZzdAI_EhWkuuLsFMEGTgyYWE&callback=initMap"async defer></script>
+	</head>
+
+	<body ng-app="myApp" ng-controller="masterCtrl">
+
+		<div class="top-div">
+
+			<a title="Search Icon - Click To Show Or Hide Search Box" href="#"><img id="search-icon" class="top-icon" src="http://i.imgur.com/q5lARJk.png"/></a>
+			<div class="search-div" id="search-div">
+				<img id="logo1" src="http://todaymade.com/blog/wp-content/uploads/2013/10/meetup.png"/>
+				<h3 style="border-bottom: 1px solid black; margin: 0; padding: 10px;" class="text-center t-txt">
+				<b>Maps & MeetUps</b>
+				</h3></br>
+				<input id="query" type="text" placeholder="Query"/><br>
+				<!--<input id="city" type="text" placeholder="City"/><br>-->
+				<input id="submit-btn" type="button" value="Submit" ng-click="loadMeetUps()"/><br>
+				<b><p class="text-center" id="message">{{message}}</p></b>
+			</div>
+
+			<h2 class="top-txt text-center"><a onclick="info()" href="#" title="Click For Info">Maps & MeetUps</a></h2>
+
+			<a title="Menu Icon - Click To Show Or Hide Results Box" href="#"><img id="menu-icon" class="top-icon" src="http://i.imgur.com/huBw3xR.png"/>
+			<div class="results-div" id="results-div">
+				<img id="logo2" src="http://todaymade.com/blog/wp-content/uploads/2013/10/meetup.png"/></a><br>
+				<center><input id="results-filter" ng-keyup="filterResults()" ng-model="filter" placeholder="Filter Results by Description"/></center><br>
+				<ul class="meetup-list">
+					<li title="Click Me To Show My Marker On The Map!" ng-click="showMarker(this)" ng-repeat="event in events | filter : {description:filter}">
+						<h3>{{event.name}}</h3>
+						<p><b>Who: </b>{{event.who}}</p>
+						<p><b>Status: </b>{{event.status}}</p>
+						<p>
+							<b>Address:</b> {{event.address}}<br>
+							<b>City:</b> {{event.city}},<br>
+							<b>State:</b> {{event.state}}<br>
+							<b>Country:</b> {{event.country}}
+						</p>
+						<p>
+							<b>Amount:</b> {{event.fee}}<br>
+							<b>Payment:</b> {{event.payment}}, <b>Currency:</b> {{event.currency}}<br>
+							<b>Fee Desc:</b> {{event.feeDesc}}
+						</p>
+						<p><b>Join Mode: </b>{{event.joinMode}}</p>
+						<p><b>Venue Link: </b><a title="Venue Link" href="{{event.url}}">Click Here</a></p>
+						<p><b>Description: </b><br>{{event.description}}</p>
+						<p><b>Date Created: </b>{{event.dateCreated | date : format : timezone}}</p>
+						<p><b>Time: </b>{{event.time | date:"MM/dd/yyyy 'at' h:mma"}}</p>
+						<p><b>Duration: </b>{{event.duration | date:"MM/dd/yyyy 'at' h:mma"}}</p>
+					</li>
+				</ul>
+			</div>
+
+		</div>
+
+		<div id="map-div" class="grand-div">
+
+		</div>
+
+		<a title="Refresh Icon - Set Map Back To Main View" href="#"><img id="refresh" src="https://cdn3.iconfinder.com/data/icons/mobiactions/512/refresh_reload_arrow_sync-512.png"/></a>
+
+	</body>
+
+</html>

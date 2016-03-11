@@ -1,0 +1,46 @@
+/* New Mobile Style */
+
+@media only screen and (max-width: 785px) {
+	
+	.top-txt {
+		font-size: 20px;
+	}
+
+	.t-txt {
+		font-size: 18px;
+	}
+	
+	.meetup-list {
+		margin: 0px;
+		padding: 5px;
+		height: 60vh;
+		width: 100%;
+		overflow-x: hidden;
+		overflow-y: scroll;
+		border: 1px solid black;
+	}
+	
+	.search-div {
+		
+	}
+	
+	.search-div {
+		top: 50px;
+		left: -999px;
+		border-bottom: 2px solid black;
+		border-right: 2px solid black;
+		width: 100%;
+	}
+	/*.results-div {
+		top: 50px;
+		right: -999px;
+		border-bottom: 2px solid black;
+		border-left: 2px solid black;
+		width: 475px;
+		max-width: 100%;
+		max-height: calc(100vh - 50px);
+		overflow-y: scroll;
+
+	}*/
+	
+}

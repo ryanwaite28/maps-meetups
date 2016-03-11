@@ -1,0 +1,179 @@
+/* New Style */
+
+/*-moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+	-o-box-sizing*/
+
+body {
+	max-width: 100%;
+	overflow: hidden;
+}
+/*body::-webkit-scrollbar {
+  display: none;
+}*/
+
+
+.top-div {
+	height: 50px;
+	width: 100%;
+	border-bottom: 2px solid black;
+}
+
+#map-div {
+	width: 100%;
+	height: calc(100vh - 50px);
+}
+
+.top-txt {
+	font-weight: bold;
+	margin: 0px;
+	height: 50px;
+	line-height: 50px;
+	max-width: 75%;
+	margin: auto;
+	position: relative;
+}
+
+.top-txt a {
+	color: black;
+}
+
+.top-icon {
+	height: 48px;
+	width: 48px;
+	position: absolute;
+	-webkit-transition: transition 0.3s;
+	transition: 0.3s;
+}
+.top-icon:hover, #refresh:hover {
+	background-color: grey;
+	transition: 0.3s;
+}
+
+.info-box {
+	max-width: 275px;
+}
+
+#menu-icon {
+	border-left: 2px solid black;
+	top: 0px;
+	right: 0px;
+}
+
+#refresh {
+	height: 40px;
+	width: 40px;
+	position: absolute;
+	-webkit-transition: transition 0.3s;
+	transition: 0.3s;
+	border: 2px solid black;
+	bottom: 30px;
+	left: -2px;
+	background-color: white;
+	opacity: 0.7;
+}
+
+#search-icon {
+	border-right: 2px solid black;
+	top: 0px;
+	left: 0px;
+	padding: 8px;
+}
+
+.search-div, .results-div {
+	position: absolute;
+	max-width: 100%;
+	z-index: 1000;
+	background-color: white;
+	padding: 10px;
+	-webkit-transition: transition 0.3s;
+	transition: 0.3s;
+}
+
+.search-div:hover, .results-div:hover {
+
+}
+
+.search-div {
+	top: 50px;
+	left: 0px;
+	border-bottom: 2px solid black;
+	border-right: 2px solid black;
+	width: 300px;
+	opacity: 0.9;
+}
+.search-div input {
+	display: block;
+	margin: auto;
+
+}
+
+.results-div {
+	top: 50px;
+	right: -999px;
+	border-bottom: 2px solid black;
+	border-left: 2px solid black;
+	width: 475px;
+	max-width: 100%;
+	max-height: calc(100vh - 50px);
+	overflow-y: scroll;
+	opacity: 0.9;
+}
+
+.results-div::-webkit-scrollbar {
+	display: none;
+}
+
+.meetup-list {
+	margin: 0px;
+	padding: 5px;
+	height: 70vh;
+	width: 100%;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	border: 1px solid black;
+}
+
+.meetup-list li {
+	width: 100%;
+	display: block;
+	padding: 10px;
+	background-color: lightgrey;
+	margin-bottom: 10px;
+	-webkit-transition: transition 0.3s;
+	transition: 0.3s;
+}
+.meetup-list li p{
+	max-width: 90%;
+
+}
+.meetup-list li:hover {
+	background-color: grey;
+	transition: 0.3s;
+}
+
+.meetup-list li:hover .results-div {
+	opacity: 1.0;
+	transition: 0.3s;
+}
+
+input {
+	border: 1px solid black;
+	border-radius: 3px;
+	padding: 3px;
+}
+
+#results-filter {
+	width: 100%;
+}
+
+#logo1 {
+	width: 35%;
+	display: block;
+	margin: auto;
+}
+#logo2 {
+	width: 20%;
+	display: block;
+	margin: auto;
+}
