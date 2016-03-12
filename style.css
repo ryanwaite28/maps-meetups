@@ -110,7 +110,7 @@ body {
 
 .results-div {
 	top: 50px;
-	right: -999px;
+	right: -500px;
 	border-bottom: 2px solid black;
 	border-left: 2px solid black;
 	width: 475px;
