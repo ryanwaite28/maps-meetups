@@ -26,42 +26,54 @@ $(document).ready(function(){
    var resultsDiv = $('#results-div');
 
    var show = "0px";
-   var hide = '-999px';
+   var hide = '-500px';
+
+   var left = 'left';
+   var right = 'right';
+   
+   var lat = 39.126182556152344;
+   var lng = -100.8551254272461;
+
+   var sdHidden = false;
+   var rdHidden = true;
 
 	searchIcon.click(function(){
 
-		if(searchDiv.css('left') == hide) {
+		if(sdHidden == true) {
 			searchDiv.animate({
 				left: show
 			});
+			sdHidden = false;
 		}
 		else {
 			searchDiv.animate({
 				left: hide
 			});
+			sdHidden = true;
 		}
 
 	});
 
 	menuIcon.click(function(){
 
-		if(resultsDiv.css('right') == hide) {
+		if(rdHidden == true) {
 			resultsDiv.animate({
 				right: show
 			});
+			rdHidden = false;
 		}
 		else {
 			resultsDiv.animate({
 				right: hide
 			});
+			rdHidden = true;
 		}
 
 	});
 
 	refreshIcon.click(function(){
 		map.setZoom(5);
-		map.setCenter({lat: 39.126182556152344, lng: -100.8551254272461});
-      map.panBy(100, -10);
+		//map.setCenter({lat: lat, lng: lng});
 	});
 
 });
@@ -75,18 +87,22 @@ var App = angular.module("myApp", []);
 App.controller('masterCtrl', function($scope) {
 
    $scope.message = '';
+   $scope.search = '';
 
-
+   var message = $('#message');
 
 	$scope.loadMeetUps = function() {
 
 		console.log('Loading...');
 
-      var searchDiv = $('#search-div');
-      var resultsDiv = $('#results-div');
+     	var searchDiv = $('#search-div');
+     	var resultsDiv = $('#results-div');
 
-      var show = "0px";
-      var hide = '-999px';
+     	var show = "0px";
+     	var hide = '-500px';
+
+     	var left = 'left';
+   		var right = 'right';
 
 		var query = $('#query').val();
 		var city = $('#city').val();
@@ -95,10 +111,13 @@ App.controller('masterCtrl', function($scope) {
 			//alert('Please Input a Search Query.');
 			$scope.message = 'Please Input a Search Query.';
 			setTimeout(function(){
-				$scope.message = '';
+				$scope.message = ' ';
 			},3000);
 			return;
 		}
+
+		$scope.search = query;
+		$('#query').val('');
 
 		var apiURL = 'http://api.meetup.com/2/open_events?text=' + query + '&key=4cb67422e7d2a681139752a238d39&format=json&callback=?';
 		console.log(apiURL);
@@ -124,7 +143,7 @@ App.controller('masterCtrl', function($scope) {
 				var who = event.group.name;
 				var status = event.status;
 				var description = event.description;
-
+				
 				var url = event.event_url;
 
 				var dateCreated = event.created;
@@ -207,6 +226,7 @@ App.controller('masterCtrl', function($scope) {
 					lat: lat,
 					lng: lng,
 					id: id,
+					itemNumber: i,
 				});
 
 
@@ -214,12 +234,16 @@ App.controller('masterCtrl', function($scope) {
 
 			$scope.message = 'Load Successfully! Click Menu Icon To View Results.';
 			setTimeout(function(){
-   			$scope.message = '';
+   			$scope.message = ' ';
 			},3500);
 
 			$scope.$apply(function(){
 				console.log($scope.events);
 			});
+			
+			$.each($scope.events, function(index, value) {
+				$('#d-' + value.itemNumber).append(value.description);
+			})
 
 			$scope.addMarkers($scope.events);
 
@@ -228,7 +252,7 @@ App.controller('masterCtrl', function($scope) {
 
 			$scope.message = 'Error Occured, MeetUps Could Not Be Loaded. Perhaps There Was a Bad Search or Search Had No Results.';
 			setTimeout(function(){
-				$scope.message = '';
+				$scope.message = ' ';
 			},3500);
 
 		});
@@ -240,7 +264,7 @@ App.controller('masterCtrl', function($scope) {
          searchDiv.animate({
             left: hide
          });
-      }, 6500);
+      }, 4675);
 
 
 	}
@@ -295,7 +319,8 @@ App.controller('masterCtrl', function($scope) {
                 infowindow.open(map, marker);
                 map.panBy(0, -125);
         	});
-
+			
+			
 
       	});
 		console.log($scope.mapMarkers);
@@ -320,12 +345,15 @@ App.controller('masterCtrl', function($scope) {
 
 	}
 
-	$scope.filterResults = function(gry) {
+	$scope.filterResults = function() {
 
 		var input = $('#results-filter').val().toLowerCase();
-		console.log(input);
+		//console.log(input);
         var list = $scope.events;
-        if (input == '') {
+        if (input == '' || !input) {
+        	$.each($scope.mapMarkers, function(index, item){
+        		$scope.mapMarkers[index].marker.setMap(map);
+        	})
             return;
         } else {
 

@@ -14,7 +14,7 @@
 		<script src="http://ryanwaite28.github.io/my-cdn/js/angular.js"></script>
 		<script src="http://ryanwaite28.github.io/my-cdn/js/jquery.js"></script>
 		<script src="script.js"></script>
-		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSHPWjouiZzdAI_EhWkuuLsFMEGTgyYWE&callback=initMap"async defer></script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSHPWjouiZzdAI_EhWkuuLsFMEGTgyYWE&callback=initMap" async defer></script>
 	</head>
 
 	<body ng-app="myApp" ng-controller="masterCtrl">
@@ -27,6 +27,7 @@
 				<h3 style="border-bottom: 1px solid black; margin: 0; padding: 10px;" class="text-center t-txt">
 				<b>Maps & MeetUps</b>
 				</h3></br>
+				<p class="text-center" id="">{{search}}</p>
 				<input id="query" type="text" placeholder="Query"/><br>
 				<!--<input id="city" type="text" placeholder="City"/><br>-->
 				<input id="submit-btn" type="button" value="Submit" ng-click="loadMeetUps()"/><br>
@@ -57,7 +58,9 @@
 						</p>
 						<p><b>Join Mode: </b>{{event.joinMode}}</p>
 						<p><b>Venue Link: </b><a title="Venue Link" href="{{event.url}}">Click Here</a></p>
-						<p><b>Description: </b><br>{{event.description}}</p>
+						<hr>
+						<p id="d-{{event.itemNumber}}"><b>Description: </b><br></p>
+						<hr>
 						<p><b>Date Created: </b>{{event.dateCreated | date : format : timezone}}</p>
 						<p><b>Time: </b>{{event.time | date:"MM/dd/yyyy 'at' h:mma"}}</p>
 						<p><b>Duration: </b>{{event.duration | date:"MM/dd/yyyy 'at' h:mma"}}</p>
