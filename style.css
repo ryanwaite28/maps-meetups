@@ -144,7 +144,7 @@ body {
 	transition: 0.3s;
 }
 .meetup-list li p{
-	max-width: 90%;
+	
 
 }
 .meetup-list li:hover {
@@ -176,4 +176,8 @@ input {
 	width: 20%;
 	display: block;
 	margin: auto;
+}
+
+img {
+	width: 100%;
 }
