@@ -42,7 +42,8 @@
 				<center><input id="results-filter" ng-keyup="filterResults()" ng-model="filter" placeholder="Filter Results by Description"/></center><br>
 				<ul class="meetup-list">
 					<li title="Click Me To Show My Marker On The Map!" ng-click="showMarker(this)" ng-repeat="event in events | filter : {description:filter}">
-						<h3>{{event.name}}</h3>
+						<h3 class="text-center"><b>{{event.name}}</b></h3>
+						<img class="li-img" src="{{event.img}}"/><br>
 						<p><b>Who: </b>{{event.who}}</p>
 						<p><b>Status: </b>{{event.status}}</p>
 						<p>
@@ -53,7 +54,7 @@
 						</p>
 						<p>
 							<b>Amount:</b> {{event.fee}}<br>
-							<b>Payment:</b> {{event.payment}}, <b>Currency:</b> {{event.currency}}<br>
+							<b>Payment:</b> {{event.payment}}, <br><b>Currency:</b> {{event.currency}}<br>
 							<b>Fee Desc:</b> {{event.feeDesc}}
 						</p>
 						<p><b>Join Mode: </b>{{event.joinMode}}</p>
