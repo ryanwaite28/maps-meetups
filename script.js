@@ -110,7 +110,7 @@ App.controller('masterCtrl', function($scope) {
         $scope.search = query;
         $('#query').val('');
 
-        var apiURL = 'http://api.meetup.com/2/open_events?text=' + query + '&key=4cb67422e7d2a681139752a238d39&format=json&callback=?';
+        var apiURL = 'https://api.meetup.com/2/open_events?text=' + query + '&key=4cb67422e7d2a681139752a238d39&format=json&callback=?';
         console.log(apiURL);
 
         $scope.events = [];
