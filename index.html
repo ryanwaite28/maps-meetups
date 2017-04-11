@@ -7,12 +7,12 @@
 		<title>Maps & MeetUps</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
-		<link rel="stylesheet" type="text/css" href="http://ryanwaite28.github.io/my-cdn/css/bootstrap.css"/>
+		<link rel="stylesheet" type="text/css" href="/my-cdn/css/bootstrap.css"/>
 		<link rel="stylesheet" type="text/css" href="style.css"/>
-		<link rel="stylesheet" type="text/css" media="only screen and (max-width: 785px)" href="mobile-style.css">
+		<link rel="stylesheet" type="text/css" media="only screen and (max-width: 785px)" href="mobile-style.css"/>
 		<link rel="icon" type="image/jpg" href="https://image.freepik.com/free-icon/network-connection_318-10835.jpg" size="20x20"/>
-		<script src="http://ryanwaite28.github.io/my-cdn/js/angular.js"></script>
-		<script src="http://ryanwaite28.github.io/my-cdn/js/jquery.js"></script>
+		<script src="/my-cdn/js/angular.js"></script>
+		<script src="/my-cdn/js/jquery.js"></script>
 		<script src="script.js"></script>
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSHPWjouiZzdAI_EhWkuuLsFMEGTgyYWE&callback=initMap" async defer></script>
 	</head>
@@ -26,7 +26,7 @@
 				<img id="logo1" src="http://todaymade.com/blog/wp-content/uploads/2013/10/meetup.png"/>
 				<h3 style="border-bottom: 1px solid black; margin: 0; padding: 10px;" class="text-center t-txt">
 				<b>Maps & MeetUps</b>
-				</h3></br>
+				</h3><br>
 				<p class="text-center" id="">{{search}}</p>
 				<input id="query" type="text" placeholder="Query"/><br>
 				<!--<input id="city" type="text" placeholder="City"/><br>-->
@@ -36,9 +36,9 @@
 
 			<h2 class="top-txt text-center"><a onclick="info()" href="#" title="Click For Info">Maps & MeetUps</a></h2>
 
-			<a title="Menu Icon - Click To Show Or Hide Results Box" href="#"><img id="menu-icon" class="top-icon" src="http://i.imgur.com/huBw3xR.png"/>
+			<a title="Menu Icon - Click To Show Or Hide Results Box" href="#"><img id="menu-icon" class="top-icon" src="http://i.imgur.com/huBw3xR.png"/></a>
 			<div class="results-div" id="results-div">
-				<img id="logo2" src="http://todaymade.com/blog/wp-content/uploads/2013/10/meetup.png"/></a><br>
+				<img id="logo2" src="http://todaymade.com/blog/wp-content/uploads/2013/10/meetup.png"/><br>
 				<center><input id="results-filter" ng-keyup="filterResults()" ng-model="filter" placeholder="Filter Results by Description"/></center><br>
 				<ul class="meetup-list">
 					<li title="Click Me To Show My Marker On The Map!" ng-click="showMarker(this)" ng-repeat="event in events | filter : {description:filter}">
