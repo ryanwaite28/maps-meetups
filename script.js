@@ -1,6 +1,7 @@
 /* --- Initiates Map --- */
 
 var map;
+var infowindow = new google.maps.InfoWindow();
 
 function initMap() {
     // Create a map object and specify the DOM element for display.
@@ -118,14 +119,14 @@ App.controller('masterCtrl', function($scope) {
         $.getJSON(apiURL, function(data) {
             console.log(data);
 
-            map = new google.maps.Map(document.getElementById('map-div'), {
+            /*map = new google.maps.Map(document.getElementById('map-div'), {
                 center: {
                     lat: 39.126182556152344,
                     lng: -100.8551254272461
                 },
                 scrollwheel: true,
                 zoom: 5
-            });
+            });*/
 
             var events = data.results;
 
@@ -269,8 +270,7 @@ App.controller('masterCtrl', function($scope) {
     $scope.addMarkers = function(array) {
 
         $.each(array, function(index, value) {
-            var infowindow = new google.maps.InfoWindow();
-
+        
             var latitude = value.lat,
                 longitude = value.lng,
                 Loc = new google.maps.LatLng(latitude, longitude),
@@ -291,7 +291,7 @@ App.controller('masterCtrl', function($scope) {
             });
 
             marker.addListener('click', function() {
-                console.log('Marker Animation');
+                // console.log('Marker Animation');
                 if (marker.getAnimation() !== null) {
                     marker.setAnimation(null);
                 } else {
