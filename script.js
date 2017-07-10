@@ -1,7 +1,7 @@
 /* --- Initiates Map --- */
 
 var map;
-var infowindow = new google.maps.InfoWindow();
+var infowindow;
 
 function initMap() {
     // Create a map object and specify the DOM element for display.
@@ -14,7 +14,7 @@ function initMap() {
         zoom: 6
     });
 
-    var infowindow = new google.maps.InfoWindow();
+    infowindow = new google.maps.InfoWindow();
 
 }
 
