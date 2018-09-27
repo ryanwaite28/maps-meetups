@@ -192,11 +192,11 @@ App.controller('masterCtrl', function($scope) {
                 if (event.venue != undefined) {
                     lat = event.venue.lat;
                     lng = event.venue.lon;
-                    img = 'https://maps.googleapis.com/maps/api/streetview?size=150x150&location=' + lat + ',' + lng + '&heading=151.78&pitch=-0.76&key=AIzaSyBWq_bL3W2U17sffyrBJdzsxeFT445s9EU'
+                    img = 'https://maps.googleapis.com/maps/api/streetview?size=150x150&location=' + lat + ',' + lng + '&heading=151.78&pitch=-0.76&key=AIzaSyB6N63ZIGH4b8Hgm9KhodA87Guuiem3C8Y'
                 } else {
                     lat = event.group.group_lat;
                     lng = event.group.group_lon;
-                    img = 'https://maps.googleapis.com/maps/api/streetview?size=150x150&location=' + lat + ',' + lng + '&heading=151.78&pitch=-0.76&key=AIzaSyBWq_bL3W2U17sffyrBJdzsxeFT445s9EU'
+                    img = 'https://maps.googleapis.com/maps/api/streetview?size=150x150&location=' + lat + ',' + lng + '&heading=151.78&pitch=-0.76&key=AIzaSyB6N63ZIGH4b8Hgm9KhodA87Guuiem3C8Y'
                 }
                 var id = event.group.id;
 
